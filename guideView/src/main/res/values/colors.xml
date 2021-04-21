@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBaseLayoutBg">#FCFBFF</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="color_33">#333333</color>
+    <color name="color_66">#666666</color>
+    <color name="colorTransparent">#0000</color>
+    <color name="translucence">#80000000</color>
+    <color name="jasper">#D84042</color>
+    <color name="sunshade">#FF9441</color>
+    <color name="solitude">#E8EAED</color>
+    <color name="athens_gray">#F0EEF5</color>
+    <color name="ebb">#E9E2E2</color>
+</resources>
