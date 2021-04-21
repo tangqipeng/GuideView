@@ -41,7 +41,7 @@ class FirstFragment : Fragment() {
             GuideParamter.Builder(this.requireContext())
 //            .addHighLightView(textView)//直接加view
             .addHighLightViewById(R.id.textview_first)//添加id
-            .setHighLightShap(Shape.Circle)
+            .setHighLightShap(Shape.RoundRect)
 //            .setHighLightViewPadding(PaddingOffset(10, 10, 10, 10))
             .addTipContentViewById(R.layout.guide_layout)
 //            .addTipContentView(tipView)//也可以直接添加view，因为这个页面可能多次使用
@@ -53,7 +53,7 @@ class FirstFragment : Fragment() {
             GuideParamter.Builder(this.requireContext())
 //            .addHighLightView(textView1)
             .addHighLightViewById(R.id.button_first)
-            .setHighLightShap(Shape.Circle)
+            .setHighLightShap(Shape.RoundRect)
 //            .setHighLightViewPadding(PaddingOffset(30, 15, 30, 15))
             .addTipContentViewById(R.layout.guide_layout)
 //            .addTipContentView(tipView)//也可以直接添加view，因为这个页面可能多次使用

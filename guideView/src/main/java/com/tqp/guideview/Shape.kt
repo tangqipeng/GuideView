@@ -8,7 +8,7 @@ package com.tqp.guideview
 enum class Shape(name: String, ordinal: Int) {
 
     Rect("矩形", 0),
-    RoundRect("矩形", 1),
+    RoundRect("圆角矩形", 1),
     Circle("圆形", 2),
     Oval("椭圆形", 3)
 

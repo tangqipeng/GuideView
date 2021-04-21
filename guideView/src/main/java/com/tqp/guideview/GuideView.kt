@@ -251,7 +251,7 @@ class GuideView : View {
                             context!!,
                             R.drawable.indicate_left_bottom_bg
                         )
-                        (mViewLeft - (mView.width - tipBitmap!!.width) / 2 - getLeftPadding()).toFloat()
+                        (mViewLeft + mView.width/2 - tipBitmap!!.width/2).toFloat()
                     } else {
                         if (getDisplayWidth() - mView.right < (tipBitmap!!.width - mView.width)) {
                             mTipView!!.background = ContextCompat.getDrawable(
@@ -323,7 +323,7 @@ class GuideView : View {
                         )
                         //箭头在左上角
                         logd(mTAG, "tipView arrows is left")
-                        (mViewLeft - getLeftPadding()).toFloat()
+                        (mViewLeft + mView.width/2 - tipBitmap!!.width/2).toFloat()
                     } else {
                         if (getDisplayWidth() - mViewRight < (tipBitmap!!.width - mView.width)) {
                             mTipView!!.background = ContextCompat.getDrawable(
