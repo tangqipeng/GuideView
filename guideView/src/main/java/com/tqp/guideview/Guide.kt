@@ -57,6 +57,15 @@ class Guide(context: Context) {
     }
 
     /**
+     * 设置dialog的背景透明度
+     */
+    fun setGuideDimAmount(amount:Float): Guide  {
+        guideDialog.setDialogDimAmount(amount)
+        return this
+    }
+
+
+    /**
      * 在最后一步设置监听事件，处理事件
      */
     fun setLastStepListener(lastStepListener: () -> Unit): Guide{
