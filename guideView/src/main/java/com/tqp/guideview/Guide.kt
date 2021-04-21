@@ -51,7 +51,7 @@ class Guide(context: Context) {
     /**
      * 设置所有的步骤
      */
-    fun setGuideParameter(guideParamters: MutableList<GuideParamter>): Guide {
+    fun setGuideParameters(guideParamters: MutableList<GuideParamter>): Guide {
         guideDialog.setGuideParamters(guideParamters)
         return this
     }

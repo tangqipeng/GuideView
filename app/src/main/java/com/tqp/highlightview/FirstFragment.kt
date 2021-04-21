@@ -37,7 +37,7 @@ class FirstFragment : Fragment() {
     }
 
     private fun addGuideView(){
-        Guide.with(this).setGuideParameter(
+        Guide.with(this).setGuideParameters(
             GuideParamter.Builder(this.requireContext())
 //            .addHighLightView(textView)//直接加view
             .addHighLightViewById(R.id.textview_first)//添加id
