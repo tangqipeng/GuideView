@@ -64,6 +64,13 @@ class Guide(context: Context) {
         return this
     }
 
+    /**
+     * 设置返回键效果
+     */
+    fun setKeyBackStatus(status: KeyBackEnum): Guide {
+        guideDialog.setKeyBackStatus(status)
+        return this
+    }
 
     /**
      * 在最后一步设置监听事件，处理事件

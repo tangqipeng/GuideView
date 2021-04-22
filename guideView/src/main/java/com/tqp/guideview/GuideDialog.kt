@@ -2,7 +2,9 @@ package com.tqp.guideview
 
 import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
 import android.graphics.Rect
+import android.view.KeyEvent
 import android.view.WindowManager
 
 
@@ -17,12 +19,36 @@ class GuideDialog(private var mContext: Context) {
 
     private var mGuideParamterList: MutableList<GuideParamter> = mutableListOf()
 
+    private var mStatus: KeyBackEnum = KeyBackEnum.DEFAULT
     private var mCurIndex: Int = 0
     private var mAmount: Float = 0F
     private var mLastStepListener: (() -> Unit)? = null
 
     private fun createDialog(guideParamter: GuideParamter) {
         val dialog = Dialog(mContext, R.style.GuideDialogStyle1)
+        if (mStatus == KeyBackEnum.INVALID){
+            dialog.setCancelable(false)
+        } else if (mStatus == KeyBackEnum.EFFECTIVE) {
+            dialog.setOnKeyListener(object : DialogInterface.OnKeyListener {
+                override fun onKey(
+                        dialog: DialogInterface?,
+                        keyCode: Int,
+                        event: KeyEvent?
+                ): Boolean {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+                        logd(mTAG, "keyCode is $keyCode")
+                        dialog?.dismiss()
+                        if (guideParamter.mTipHintListener != null) {
+                            guideParamter.mTipHintListener?.invoke()
+                        }
+                        mCurIndex++
+                        showGuide()
+                        return true
+                    }
+                    return true
+                }
+            })
+        }
         val view = GuideView(mContext)
         if (guideParamter.mView != null) {
             view.addGuideView(guideParamter.mView!!)
@@ -76,8 +102,6 @@ class GuideDialog(private var mContext: Context) {
                     dialog.show()
                 }, 200)
             }
-
-
         } else {
             loge(mTAG, "mView is null")
         }
@@ -114,6 +138,13 @@ class GuideDialog(private var mContext: Context) {
      */
     fun setDialogDimAmount(amount:Float) {
         this.mAmount = amount
+    }
+
+    /**
+     * 设置返回键效果
+     */
+    fun setKeyBackStatus(status: KeyBackEnum) {
+        this.mStatus = status
     }
 
     /**
