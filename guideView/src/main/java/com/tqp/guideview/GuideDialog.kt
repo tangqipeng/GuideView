@@ -89,7 +89,7 @@ class GuideDialog(private var mContext: Context) {
                     val lp = wd?.attributes
                     if (lp != null) {
                         lp.width = WindowManager.LayoutParams.MATCH_PARENT
-                        lp.height = WindowManager.LayoutParams.MATCH_PARENT
+                        lp.height = getUsableDisplayHeight(mContext)
                     }
                     if (wd != null) {
                         if (guideParamter.mAmount != 0F) {
