@@ -64,19 +64,25 @@ private fun getSizeByReflection(context: Context, field: String?): Int {
     var size = -1
     try {
         val clazz = Class.forName("com.android.internal.R\$dimen")
-        val `object` = clazz.newInstance()
-        val height = clazz.getField(field)[`object`].toString().toInt()
+        val stateOb = clazz.newInstance()
+        val height = clazz.getField(field)[stateOb].toString().toInt()
         size = context.resources.getDimensionPixelSize(height)
     } catch (e: Exception) {
-        e.printStackTrace()
+        if (size == -1){
+            val resourceId: Int = context.resources.getIdentifier("status_bar_height", "dimen", "android")
+            if (resourceId > 0) {
+                //根据资源ID获取响应的尺寸值
+                size = context.resources.getDimensionPixelSize(resourceId)
+            }
+        }
     }
     return size
 }
 
-fun getToolBarHeight(activity: Activity): Int {
+fun getToolBarHeight(context: Context): Int {
     val tv = TypedValue()
-    if (activity.theme.resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
-        return TypedValue.complexToDimensionPixelSize (tv.data, activity.resources.displayMetrics)
+    if (context.theme.resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
+        return TypedValue.complexToDimensionPixelSize (tv.data, context.resources.displayMetrics)
     }
     return 0
 }
