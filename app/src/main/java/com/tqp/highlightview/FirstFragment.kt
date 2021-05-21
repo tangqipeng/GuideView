@@ -43,6 +43,7 @@ class FirstFragment : Fragment() {
             .addHighLightViewById(R.id.textview_first)//添加id
             .setHighLightShap(Shape.RoundRect)
 //            .setHighLightViewPadding(PaddingOffset(10, 10, 10, 10))
+            .setRoundRectCorners(50F, 50F)
             .addTipContentViewById(R.layout.guide_layout)
 //            .addTipContentView(tipView)//也可以直接添加view，因为这个页面可能多次使用
             .setTipViewOrientation(TipOrientation.BOTTOM)

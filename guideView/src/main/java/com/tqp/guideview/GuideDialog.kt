@@ -54,7 +54,12 @@ class GuideDialog(private var mContext: Context) {
             view.addGuideView(guideParamter.mView!!)
             if (guideParamter.mShape != null){
                 view.setHighLightShape(guideParamter.mShape!!)
+
+                if (guideParamter.mShape == Shape.RoundRect && (guideParamter.mCx != 0F || guideParamter.mCy != 0F)){
+                    view.setRoundRectCorners(guideParamter.mCx, guideParamter.mCy)
+                }
             }
+
             if (guideParamter.mPaddingOffset != null){
                 view.setHighLightViewPadding(guideParamter.mPaddingOffset!!)
             }

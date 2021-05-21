@@ -30,6 +30,9 @@ class GuideView : View {
     private var mOrientation: TipOrientation = TipOrientation.RIGHT
     private var mTipMargin: Int = 10
 
+    private var mRx: Float = 10f
+    private var mRy: Float = 10f
+
     private var tipBitmap: Bitmap? = null
     private var mTipLeft: Float = 0f
     private var mTipTop: Float = 0f
@@ -81,6 +84,18 @@ class GuideView : View {
      */
     fun setHighLightShape(shape: Shape) {
         mShape = shape
+    }
+
+    /**
+     * 设置圆角矩形的圆弧
+     */
+    fun setRoundRectCorners(cx: Float, cy: Float){
+        if (cx > 0f) {
+            mRx = cx
+        }
+        if (cy > 0f) {
+            mRy = cy
+        }
     }
 
     /**
@@ -173,7 +188,7 @@ class GuideView : View {
                     (mViewRight + getRightPadding()).toFloat(),
                     (mViewBottom + getBottomPadding()).toFloat()
                 )
-                canvas?.drawRoundRect(rectF, 10f, 10f, mPaint)
+                canvas?.drawRoundRect(rectF, mRx, mRy, mPaint)
             }
             Shape.Circle -> {
                 canvas?.drawCircle(

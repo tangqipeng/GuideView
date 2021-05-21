@@ -19,6 +19,8 @@ class GuideParamter {
     internal var mView: View? = null
     internal var mTipView: View? = null
     internal var mShape: Shape? = null
+    internal var mCx: Float = 0F
+    internal var mCy: Float = 0F
     internal var mPaddingOffset: PaddingOffset? = null
     internal var mOrientation: TipOrientation? = null
     internal var mTipMargin: Int? = null
@@ -66,6 +68,15 @@ class GuideParamter {
          */
         fun setHighLightShap(shape: Shape):Builder{
             guideParamter.mShape = shape
+            return this
+        }
+
+        /**
+         * 高亮的形状
+         */
+        fun setRoundRectCorners(cx:Float, cy:Float):Builder{
+            guideParamter.mCx = cx
+            guideParamter.mCy = cy
             return this
         }
 
